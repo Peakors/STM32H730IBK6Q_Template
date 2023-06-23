@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "lcd_test.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -87,7 +87,7 @@ int main(void) {
     MX_GPIO_Init();
     MX_USART1_UART_Init();
     /* USER CODE BEGIN 2 */
-
+    SPI_LCD_Init();            // SPI LCD屏幕初始化
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -98,6 +98,14 @@ int main(void) {
         /* USER CODE BEGIN 3 */
         HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
         HAL_Delay(500);
+
+        LCD_Test_Clear();        // 清屏测试
+        LCD_Test_Text();            // 文本测试
+        LCD_Test_Variable();    // 变量显示，包括整数和小数
+        LCD_Test_Color();            // 颜色测试
+        LCD_Test_Graphic();        // 2D图形绘制
+        LCD_Test_Image();            // 图片显示
+        LCD_Test_Direction();    // 更换显示方向
     }
     /* USER CODE END 3 */
 }
