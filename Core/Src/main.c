@@ -23,6 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "retarget.h"   //重定向printf
 #include "lcd_test.h"
 /* USER CODE END Includes */
 
@@ -87,6 +88,7 @@ int main(void) {
     MX_GPIO_Init();
     MX_USART1_UART_Init();
     /* USER CODE BEGIN 2 */
+    RetargetInit(&huart1);  //重定向printf
     SPI_LCD_Init();            // SPI LCD屏幕初始化
     /* USER CODE END 2 */
 
@@ -96,6 +98,7 @@ int main(void) {
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
+        printf("printf test\r\n");
         HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
         HAL_Delay(500);
 

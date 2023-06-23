@@ -11,6 +11,7 @@ set(CMAKE_OBJCOPY arm-none-eabi-objcopy)
 set(CMAKE_OBJDUMP arm-none-eabi-objdump)
 set(SIZE arm-none-eabi-size)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+set(COMMON_FLAGS "-specs=nosys.specs -specs=nano.specs -u _printf_float -u _scanf_float")
 
 # project settings
 project(${projectName} C CXX ASM)
@@ -53,6 +54,8 @@ include_directories(
     BSP/Src
     LCD/Inc
     LCD/Src
+    Library/Inc
+    Library/Src
     Core/Inc
     Drivers/STM32H7xx_HAL_Driver/Inc
     Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
@@ -62,7 +65,7 @@ include_directories(
 
 add_definitions(${defines})
 
-file(GLOB_RECURSE SOURCES "BSP/*.*" "LCD/*.*" "Core/*.*" "Drivers/*.*")
+file(GLOB_RECURSE SOURCES "BSP/*.*" "LCD/*.*" "Library/*.*" "Core/*.*" "Drivers/*.*")
 
 set(LINKER_SCRIPT $${CMAKE_SOURCE_DIR}/${linkerScript})
 
