@@ -10,6 +10,7 @@
       <file path="$PROJECT_DIR$/.config" />
       <file path="$PROJECT_DIR$/Drivers" />
       <file path="$PROJECT_DIR$/LCD" />
+      <file path="$PROJECT_DIR$/Library" />
     </libraryRoots>
   </component>
 </project>
