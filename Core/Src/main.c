@@ -90,6 +90,13 @@ int main(void) {
     /* USER CODE BEGIN 2 */
     RetargetInit(&huart1);  //重定向printf
     SPI_LCD_Init();            // SPI LCD屏幕初始化
+
+//    char buf[100];
+//    printf("\r\nYour name:");
+//    scanf("%s",buf);
+//    printf("\r\nHello, %s!\r\n",buf);
+//    printf("串口重定向测试完毕\r\n");
+
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -98,12 +105,6 @@ int main(void) {
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        char buf[100];
-        printf("\r\nYour name:");
-        scanf("%s",buf);
-        printf("\r\nHello, %s!\r\n",buf);
-        printf("串口重定向测试完毕\r\n");
-
         HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
         HAL_Delay(500);
 
